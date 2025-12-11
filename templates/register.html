@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="auth-container animate-fade-in">
+    <h2 class="neon-title">Create Account</h2>
+
+    <form method="POST" class="auth-form neon-border">
+        {{ form.hidden_tag() }}
+
+        <div class="input-group">
+            {{ form.username.label }}
+            {{ form.username(class="input-field") }}
+        </div>
+
+        <div class="input-group">
+            {{ form.password.label }}
+            {{ form.password(class="input-field") }}
+        </div>
+
+        {{ form.submit(class="btn neon-btn") }}
+
+        <p class="switch-text">
+            Already registered?
+            <a href="{{ url_for('auth.login') }}" class="neon-link">Login</a>
+        </p>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <h1>Admin Dashboard</h1>
+
+    <h2>Registered Users</h2>
+    <ul>
+        {% for user in users %}
+            <li>
+                Username: {{ user.username }}  
+                {% if user.is_admin %}
+                    <strong>(Admin)</strong>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <hr>
+
+   <h2>Uploaded Files</h2>
+
+{% for file in files %}
+    <div>
+        User ID: {{ file.user_id }} |
+        File: {{ file.original_filename }} |
+        Encrypted: {{ file.encrypted_filename }}
+
+        <form action="{{ url_for('admin.download_user_file', file_id=file._id) }}" method="POST">
+            <input type="password" name="password" placeholder="Enter file password to decrypt">
+            <button type="submit">Download</button>
+        </form>
+    </div>
+    <hr>
+{% endfor %}
+
+    <a href="{{ url_for('auth.logout') }}">Logout</a>
+</body>
+</html>

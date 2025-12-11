@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SecureVault</title>
+</head>
+<body>
+
+{# DO NOT SHOW NAVBAR ON LOGIN OR ADMIN LOGIN PAGE #}
+{% if request.endpoint not in ['auth.login', 'auth.admin_login'] %}
+
+    {% if current_user.is_authenticated %}
+        <nav>
+            <a href="{{ url_for('vault.dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('vault.upload') }}">Upload</a>
+            <a href="{{ url_for('auth.logout') }}">Logout</a>
+
+            {% if current_user.is_admin %}
+                <a href="{{ url_for('admin.admin_home') }}">Admin Panel</a>
+            {% endif %}
+        </nav>
+
+    {% else %}
+        <nav>
+            <a href="{{ url_for('auth.login') }}">Login</a>
+            <a href="{{ url_for('auth.register') }}">Register</a>
+            <a href="{{ url_for('auth.admin_login') }}">Admin Login</a>
+        </nav>
+    {% endif %}
+
+    <hr>
+{% endif %}
+
+{% block content %}{% endblock %}
+
+</body>
+</html>

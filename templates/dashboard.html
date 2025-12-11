@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Welcome, {{ current_user.username }} 👋</h1>
+<p>This is your personal dashboard. Upload and manage your encrypted files.</p>
+
+<hr>
+
+<h2>Your Files</h2>
+
+{% if files|length == 0 %}
+    <p>No files uploaded yet.</p>
+    <a href="{{ url_for('vault.upload') }}">Upload your first file</a>
+{% else %}
+    {% for file in files %}
+        <div style="margin-bottom: 20px;">
+            <strong>{{ file.original_filename }}</strong>
+
+            <form action="{{ url_for('vault.download', file_id=file._id) }}" method="GET">
+                <input type="password" name="password" placeholder="Enter password to decrypt" required>
+                <button type="submit">Download</button>
+            </form>
+        </div>
+        <hr>
+    {% endfor %}
+{% endif %}
+
+{% endblock %}

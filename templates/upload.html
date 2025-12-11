@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="page-title animate-slide-down">Upload & Encrypt File</h2>
+
+<form method="POST" enctype="multipart/form-data" class="upload-form neon-border animate-fade-in">
+    
+    <div class="input-group">
+        <label>Select File</label>
+        <input type="file" name="file" required class="input-field">
+    </div>
+
+    <div class="input-group">
+        <label>Encryption Password</label>
+        <input type="password" name="password" required class="input-field">
+    </div>
+
+    <button type="submit" class="btn neon-btn">Encrypt & Upload</button>
+
+</form>
+
+{% endblock %}

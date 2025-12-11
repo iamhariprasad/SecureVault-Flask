@@ -1,0 +1,37 @@
+securevault/
+│
+├── app.py                     # Flask app entry point
+├── config.py                  # App configuration (Mongo URI, secret keys)
+├── requirements.txt           # Python dependencies
+│
+├── extensions/
+│   └── mongo.py               # MongoDB client initialization (PyMongo)
+│
+├── auth/                      # User Authentication (Web + API)
+│   ├── __init__.py
+│   ├── routes.py              # Login, Register, Logout (Session-based)
+│   ├── api.py                 # API login/register (JWT-based)
+│   ├── forms.py               # WTForms for login/register UI
+│   └── utils.py               # Password hashing/verification
+│
+├── vault/                     # Encrypted File Storage Module
+│   ├── __init__.py
+│   ├── routes.py              # Upload UI, File listing UI, Download UI
+│   ├── api.py                 # API upload/download endpoints
+│   ├── encryption.py          # AES-256-GCM Encrypt/Decrypt engine
+│   ├── storage.py             # File save/load operations
+│   └── models.py              # MongoDB data models (users, files)
+│
+├── templates/                 # HTML pages (Jinja2)
+│   ├── base.html              # Global layout with neon theme
+│   ├── login.html             # Animated login UI
+│   ├── register.html          # Animated signup UI
+│   ├── dashboard.html         # File list + actions
+│   └── upload.html            # Encrypted file upload form
+│
+└── static/
+    ├── css/
+    │   └── style.css          # Black/red/orange neon animations
+    ├── js/
+    │   └── main.js            # Optional animations + progress
+    └── icons/                 # Optional neon icons or illustrations
