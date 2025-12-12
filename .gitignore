@@ -7,3 +7,5 @@ instance/
 .env
 *.enc
 encrypted_files/
+/logs
+logs

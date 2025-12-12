@@ -1,3 +1,4 @@
+#Environment setup script for Ubuntu/Debian systems
 #!/usr/bin/env bash
 set -euo pipefail
 if ! command -v apt-get >/dev/null 2>&1; then
