@@ -1,18 +1,28 @@
 securevault/
 │
 ├── app.py                     # Flask app entry point
-├── config.py                  # App configuration (Mongo URI, secret keys)
+├── config.py                  # App configuration (Mongo URI, secrets, app settings)
 ├── requirements.txt           # Python dependencies
+├── README.md                  # Setup and run instructions
+├── .env.example               # Environment variable template
+├── .gitignore                 # Git ignore rules
 │
-├── extensions/
-│   └── mongo.py               # MongoDB client initialization (PyMongo)
+├── extensions/                # App extensions
+│   ├── __init__.py
+│   ├── mongo.py               # MongoDB client initialization (PyMongo)
+│   └── login.py               # Flask-Login manager setup
 │
 ├── auth/                      # User Authentication (Web + API)
 │   ├── __init__.py
 │   ├── routes.py              # Login, Register, Logout (Session-based)
 │   ├── api.py                 # API login/register (JWT-based)
 │   ├── forms.py               # WTForms for login/register UI
+│   ├── models.py              # Auth-related MongoDB models
 │   └── utils.py               # Password hashing/verification
+│
+├── admin/                     # Admin views and routes
+│   ├── __init__.py
+│   └── routes.py              # Admin login, dashboard, user management
 │
 ├── vault/                     # Encrypted File Storage Module
 │   ├── __init__.py
@@ -20,18 +30,35 @@ securevault/
 │   ├── api.py                 # API upload/download endpoints
 │   ├── encryption.py          # AES-256-GCM Encrypt/Decrypt engine
 │   ├── storage.py             # File save/load operations
-│   └── models.py              # MongoDB data models (users, files)
+│   ├── models.py              # MongoDB data models (users, files)
+│   └── utils.py               # Shared helpers for vault features
+│
+├── scripts/
+│   └── setup_ubuntu.sh        # Optional Ubuntu/WSL setup helper
 │
 ├── templates/                 # HTML pages (Jinja2)
 │   ├── base.html              # Global layout with neon theme
+│   ├── home.html              # Landing page
 │   ├── login.html             # Animated login UI
 │   ├── register.html          # Animated signup UI
 │   ├── dashboard.html         # File list + actions
-│   └── upload.html            # Encrypted file upload form
+│   ├── upload.html            # Encrypted file upload form
+│   ├── admin_login.html       # Admin login page
+│   └── admin_dashboard.html   # Admin dashboard
 │
 └── static/
     ├── css/
     │   └── style.css          # Black/red/orange neon animations
     ├── js/
     │   └── main.js            # Optional animations + progress
-    └── icons/                 # Optional neon icons or illustrations
+    └── icons/                 # Filetype icons for UI (PNG)
+        ├── archive.png
+        ├── csv.png
+        ├── file.png
+        ├── image.png
+        ├── musicpng.png
+        ├── pdf.png
+        ├── ppt.png
+        ├── video.png
+        ├── word-file.png
+        └── xls.png
