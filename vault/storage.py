@@ -1,7 +1,8 @@
 import os
 from config import Config
 
-STORAGE_DIR = Config.UPLOAD_FOLDER
+STORAGE_DIR = os.environ.get("UPLOAD_FOLDER", "encrypted_files")
+os.makedirs(STORAGE_DIR, exist_ok=True)
 
 
 def save_encrypted_file(original_name, encrypted_data):
