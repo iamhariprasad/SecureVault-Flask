@@ -228,3 +228,5 @@ if __name__ == "__main__":
     except ValueError:
         port = 5000
     app.run(host=host, port=port, debug=debug, use_reloader=False)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
