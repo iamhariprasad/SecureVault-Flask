@@ -1,4 +1,6 @@
 Flask==3.0.0
+Flask==3.0.1
+Flask-PyMongo==2.3.0
 Flask-Login==0.6.2
 Flask-WTF==1.2.1
 PyMongo==4.6.0

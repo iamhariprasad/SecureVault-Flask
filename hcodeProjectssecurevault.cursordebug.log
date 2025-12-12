@@ -1,0 +1,17 @@
+{"location": "app.py:66", "message": "create_app starting", "data": {}, "timestamp": 1765518568694.4692, "sessionId": "debug-session", "runId": "post-fix", "hypothesisId": "C"}
+{"location": "app.py:72", "message": "Flask app created and config loaded", "data": {}, "timestamp": 1765518568700.0742, "sessionId": "debug-session", "runId": "post-fix", "hypothesisId": "C"}
+{"location": "app.py:79", "message": "mongo initialized", "data": {"db_available": true}, "timestamp": 1765518568734.2856, "sessionId": "debug-session", "runId": "post-fix", "hypothesisId": "E"}
+{"location": "app.py:84", "message": "login_manager initialized", "data": {}, "timestamp": 1765518568740.4966, "sessionId": "debug-session", "runId": "post-fix", "hypothesisId": "E"}
+{"location": "app.py:89", "message": "JWTManager initialized", "data": {"jwt_manager_stored": true}, "timestamp": 1765518568745.0725, "sessionId": "debug-session", "runId": "post-fix", "hypothesisId": "D"}
+{"location": "app.py:96", "message": "Jinja filter registered", "data": {"filter_exists": true}, "timestamp": 1765518568749.3074, "sessionId": "debug-session", "runId": "post-fix", "hypothesisId": "B"}
+{"location": "app.py:108", "message": "All blueprints registered", "data": {"blueprint_count": 5}, "timestamp": 1765518568753.7856, "sessionId": "debug-session", "runId": "post-fix", "hypothesisId": "C"}
+{"location": "app.py:115", "message": "app instance created", "data": {"app_type": "Flask"}, "timestamp": 1765518568758.178, "sessionId": "debug-session", "runId": "post-fix", "hypothesisId": "C"}
+{"location": "app.py:66", "message": "create_app starting", "data": {}, "timestamp": 1765518570141.7295, "sessionId": "debug-session", "runId": "post-fix", "hypothesisId": "C"}
+{"location": "app.py:72", "message": "Flask app created and config loaded", "data": {}, "timestamp": 1765518570150.0947, "sessionId": "debug-session", "runId": "post-fix", "hypothesisId": "C"}
+{"location": "app.py:79", "message": "mongo initialized", "data": {"db_available": true}, "timestamp": 1765518570157.8276, "sessionId": "debug-session", "runId": "post-fix", "hypothesisId": "E"}
+{"location": "app.py:84", "message": "login_manager initialized", "data": {}, "timestamp": 1765518570162.6338, "sessionId": "debug-session", "runId": "post-fix", "hypothesisId": "E"}
+{"location": "app.py:89", "message": "JWTManager initialized", "data": {"jwt_manager_stored": true}, "timestamp": 1765518570167.1265, "sessionId": "debug-session", "runId": "post-fix", "hypothesisId": "D"}
+{"location": "app.py:96", "message": "Jinja filter registered", "data": {"filter_exists": true}, "timestamp": 1765518570177.0232, "sessionId": "debug-session", "runId": "post-fix", "hypothesisId": "B"}
+{"location": "app.py:108", "message": "All blueprints registered", "data": {"blueprint_count": 5}, "timestamp": 1765518570181.7114, "sessionId": "debug-session", "runId": "post-fix", "hypothesisId": "C"}
+{"location": "app.py:115", "message": "app instance created", "data": {"app_type": "Flask"}, "timestamp": 1765518570186.3433, "sessionId": "debug-session", "runId": "post-fix", "hypothesisId": "C"}
+{"location": "app.py:123", "message": "home route called", "data": {}, "timestamp": 1765518573310.9863, "sessionId": "debug-session", "runId": "post-fix", "hypothesisId": "C"}

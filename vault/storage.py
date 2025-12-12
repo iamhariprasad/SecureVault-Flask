@@ -1,10 +1,7 @@
 import os
+from config import Config
 
-STORAGE_DIR = "encrypted_files"
-
-# Create directory if missing
-if not os.path.exists(STORAGE_DIR):
-    os.makedirs(STORAGE_DIR)
+STORAGE_DIR = Config.UPLOAD_FOLDER
 
 
 def save_encrypted_file(original_name, encrypted_data):
@@ -31,3 +28,12 @@ def load_encrypted_file(encrypted_filename):
 
     with open(encrypted_path, "rb") as f:
         return f.read()
+
+
+def delete_encrypted_file(encrypted_filename):
+    """Delete encrypted file from disk."""
+    encrypted_path = os.path.join(STORAGE_DIR, encrypted_filename)
+    if os.path.exists(encrypted_path):
+        os.remove(encrypted_path)
+        return True
+    return False

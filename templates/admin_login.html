@@ -1,20 +1,35 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Admin Login</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
+{% extends "base.html" %}
+{% block content %}
 
-<body>
-    <h1>Admin Login</h1>
+<div class="auth-container animate-fade-in">
+    <div class="auth-card">
+        <h2 class="page-title" style="text-align: center; margin-bottom: 2rem;">Admin Login</h2>
+        <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem; font-size: 0.9rem;">
+            ⚠️ Admin access only
+        </p>
 
-    <form method="POST">
-        {{ form.hidden_tag() }}
-        {{ form.username.label }} {{ form.username() }} <br>
-        {{ form.password.label }} {{ form.password() }} <br>
-        {{ form.submit() }}
-    </form>
+        <form method="POST" id="adminLoginForm" action="{{ url_for('auth.admin_login') }}">
+            {{ form.hidden_tag() }}
 
-    <a href="{{ url_for('auth.login') }}">User Login</a>
-</body>
-</html>
+            <div class="form-group">
+                {{ form.username.label(class="form-label") }}
+                {{ form.username(class="form-input", placeholder="Admin username") }}
+            </div>
+
+            <div class="form-group">
+                {{ form.password.label(class="form-label") }}
+                {{ form.password(class="form-input", placeholder="Admin password") }}
+            </div>
+
+            {{ form.submit(class="btn btn-primary", style="width: 100%;") }}
+
+            <p style="text-align: center; margin-top: 1.5rem; color: var(--text-secondary);">
+                <a href="{{ url_for('auth.login') }}" style="color: var(--accent-primary); text-decoration: none; font-weight: 600;">
+                    ← Back to User Login
+                </a>
+            </p>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

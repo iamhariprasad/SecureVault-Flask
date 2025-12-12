@@ -1,10 +1,11 @@
-from flask import Blueprint, render_template, request, redirect, send_file, flash, url_for
+from flask import Blueprint, render_template, request, redirect, send_file, flash, url_for, jsonify
 from flask_login import login_required, current_user
 from vault.encryption import encrypt_file, decrypt_file
-from vault.storage import save_encrypted_file, load_encrypted_file
-from vault.models import add_file_record, get_user_files, get_file_by_id
+from vault.storage import save_encrypted_file, load_encrypted_file, delete_encrypted_file
+from vault.models import add_file_record, get_user_files, get_file_by_id, delete_file_record, get_user_stats
 from io import BytesIO
 from bson import ObjectId
+import os
 
 vault_bp = Blueprint("vault", __name__)
 
@@ -14,7 +15,8 @@ vault_bp = Blueprint("vault", __name__)
 @login_required
 def dashboard():
     files = list(get_user_files(current_user.id))
-    return render_template("dashboard.html", files=files)
+    stats = get_user_stats(current_user.id)
+    return render_template("dashboard.html", files=files, stats=stats)
 
 
 
@@ -31,6 +33,7 @@ def upload():
             return redirect(url_for("vault.upload"))
 
         data = file.read()
+        file_size = len(data)
         encrypted_data, salt, iv = encrypt_file(password, data)
 
         encrypted_filename = save_encrypted_file(file.filename, encrypted_data)
@@ -40,7 +43,8 @@ def upload():
             file.filename,
             encrypted_filename,
             salt,
-            iv
+            iv,
+            file_size
         )
 
         flash("File uploaded successfully!", "success")
@@ -84,3 +88,26 @@ def download(file_id):
         download_name=record["original_filename"],
         as_attachment=True
     )
+
+
+# ---------------- DELETE FILE ---------------- #
+@vault_bp.route("/delete/<file_id>", methods=["POST"])
+@login_required
+def delete_file(file_id):
+    record = get_file_by_id(file_id)
+    
+    # Block access to another user's files
+    if not record or str(record["user_id"]) != current_user.id:
+        flash("Unauthorized file access!", "danger")
+        return redirect(url_for("vault.dashboard"))
+    
+    # Delete encrypted file from disk
+    delete_encrypted_file(record["encrypted_filename"])
+    
+    # Delete record from database
+    if delete_file_record(file_id, current_user.id):
+        flash("File deleted successfully!", "success")
+    else:
+        flash("Failed to delete file!", "danger")
+    
+    return redirect(url_for("vault.dashboard"))
