@@ -1,11 +1,23 @@
+# Python / venv
 venv/
 .venv/
-.cursor/
 __pycache__/
-*.pyc
-instance/
+*.py[cod]
+*.pyo
+
+# local environment
 .env
-*.enc
+.env.local
+
+# runtime data
 encrypted_files/
-/logs
-logs
+.cursor/
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# system
+.DS_Store
+Thumbs.db
