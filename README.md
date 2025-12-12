@@ -32,6 +32,37 @@ Configuration (.env):
 - ADMIN_USERNAME, ADMIN_PASSWORD: optional bootstrap values if your workflow uses them
 Environment variables are loaded automatically via python-dotenv when a .env file is present.
 
+
+
+
+Website images:
+## 🔐 Login Page
+<img src="https://github.com/user-attachments/assets/75ac1b35-6a83-4f5b-8b53-4936ecf4f2ae" width="100%" />
+
+## 🧾 Register Page & Admin Login
+<img src="https://github.com/user-attachments/assets/1a1fcc8b-47b4-4ed2-bea7-7f562d19317c" width="100%" />
+
+## 🗂️ Dashboard (User & Admin)
+<img src="https://github.com/user-attachments/assets/0e52777d-1ed8-49ee-a308-52f17b10c1a0" width="100%" />
+
+## ⬆️ Upload Files (Password Encrypted) — User & Admin
+<img src="https://github.com/user-attachments/assets/1d500330-b12f-4f74-b0a8-a3abad218fea" width="100%" />
+
+## 🆕 Updated Dashboard (User & Admin)
+<img src="https://github.com/user-attachments/assets/ba3e652a-8f70-4840-a589-7a565ac13b5b" width="100%" />
+
+## 🔓 Download File (Password Decryption) — User & Admin
+<img src="https://github.com/user-attachments/assets/6f0388db-bbe7-4e15-935f-1306757476e8" width="100%" />
+
+## 👤 User 2 Uploading Files
+<img src="https://github.com/user-attachments/assets/e8135bd3-4e10-4030-bf3f-018960512b31" width="100%" />
+
+## 📁 File Uploaded (User 2)
+<img src="https://github.com/user-attachments/assets/cf621ef3-f213-40cd-8b5d-7ab4d94195c6" width="100%" />
+
+## 🛡️ Admin Dashboard (hari is admin + regular user)
+<img src="https://github.com/user-attachments/assets/1b72a385-092d-4cbf-8a39-10b04c100d1f" width="100%" />
+
 Troubleshooting:
 - MongoDB connectivity:
   - Ensure MongoDB is running (e.g., sudo systemctl status mongodb) or use Docker.
